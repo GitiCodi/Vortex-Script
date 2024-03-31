@@ -1,0 +1,40 @@
+#include "Vortex Script/Packages/Workflow.hpp"
+#include "Vortex Script/Packages/Arithmetics.hpp"
+#include "Vortex Script/Packages/Storage.hpp"
+#include "Script/Packages/IO.hpp"
+#include "Script/Packages/Looping.hpp"
+
+void VortexScriptForLoop()
+{
+    Looping::executeStatement("for setVar i 1 i <= 5 i++");
+}
+
+void VortexScriptWhileLoop()
+{
+    Looping::executeStatement("while setVar j 1 j <= 5 i++");
+}
+
+void VortexScriptVariable()
+{
+    Storage::setVar("Vortex Variable1", "103");
+    Storage::setVar("Vortex Variable2", "7");
+}
+
+void VortexScriptIO()
+{
+    Storage::setVar("x", "75");
+    Storage::setVar("y", "25");
+
+    IO::outStream(Storage::getVar("x"));
+}
+
+void VortexScriptArithmetics()
+{
+    Storage::setVar("x1", "75");
+    Storage::setVar("y2", "25");
+
+    Arithmetic::calculate("+",  Storage::getVar("x1"), Storage::getVar("y2"));
+    Arithmetic::calculate("/",  Storage::getVar("x1"), Storage::getVar("y2"));
+    Arithmetic::calculate("*",  Storage::getVar("x1"), Storage::getVar("y2"));
+    Arithmetic::calculate("-",  Storage::getVar("x1"), Storage::getVar("y2"));
+}
